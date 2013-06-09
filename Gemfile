@@ -11,6 +11,8 @@ gem 'bootstrap-sass'
 
 gem 'wordnik', "~> 4.12"
 
+gem 'figaro'
+
 group :production do
   gem 'pg'
 end
