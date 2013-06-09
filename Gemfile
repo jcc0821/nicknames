@@ -11,7 +11,9 @@ gem 'bootstrap-sass'
 
 gem 'wordnik', "~> 4.12"
 
-
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem "rspec-rails", "~> 2.13.2"
