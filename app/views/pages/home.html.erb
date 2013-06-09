@@ -1,0 +1,26 @@
+<h1><%= @adj["word"].capitalize.gsub(/[-']/,'') %><%= @noun["word"].capitalize.gsub(/[-']/,'') %></h1>
+
+
+<div class="center">
+<%= button_to "Generate Name!", {action: :home}, method: :get, class: "btn btn-medium btn-primary" %>
+</div>
+
+<hr> 
+
+<div class="half left definition">
+<p><strong><%= @adj["word"].capitalize %></strong></p>
+<ol>
+<p><% @adj_def.each do |t| %></p>
+<li><em><%= t["partOfSpeech"] %>.</em> <%= t["text"] %><br/><em>Source: </em><%= t["attributionText"][5, 100] %></li>
+<% end %>
+</ol>
+</div>
+
+<div class="half left definition">
+<p><strong><%= @noun["word"].capitalize %></strong></p>
+<ol>
+<p><% @noun_def.each do |t| %></p>
+<li><em><%= t["partOfSpeech"] %>.</em> <%= t["text"] %><br/><em>Source: </em><%= t["attributionText"][5, 100] %></li>
+<% end %>
+</ol>
+</div>

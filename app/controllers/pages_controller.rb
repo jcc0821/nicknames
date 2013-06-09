@@ -1,15 +1,20 @@
+
 class PagesController < ApplicationController
+
   def home
-    @a = Wordnik.word.get_definitions('hysterical')
-    @b = 'hello'
 
-    @adjective1 = Wordnik.words.randomWord(includePartOfSpeech: "adjective", minLength: "1")
-    @adjective2 = Wordnik.words.randomWord(hasDictionaryDef: "false", includePartOfSpeech: "adjective", minLength: "1")
+    @adj = Wordnik.word.get_random_word(include_part_of_speech: "adjective", min_corpus_count: 0, max_corpus_count: -1, min_dictionary_count: 1, max_dictionary_count: -1, min_length: 1, max_length: 8)
+    @adj_def = Wordnik.word.get_definitions(@adj["word"])
 
-    @adverb1 = Wordnik.words.randomWord(includePartOfSpeech: "adverb", minLength: "1")
-    @adverb2 = Wordnik.words.randomWord(hasDictionaryDef: "false", includePartOfSpeech: "adverb", minLength: "1")
+
+    @noun = Wordnik.word.get_random_word(include_part_of_speech: "noun", min_corpus_count: 0, max_corpus_count: -1, min_dictionary_count: 1, max_dictionary_count: -1, min_length: 1, max_length: 12)
+    @noun_def = Wordnik.word.get_definitions(@noun["word"])
+
+    respond_to do |format|
+      format.js 
+      format.html
+    end
+
   end
 
-  def result
-  end
 end

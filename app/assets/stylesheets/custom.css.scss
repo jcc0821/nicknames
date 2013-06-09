@@ -1,5 +1,16 @@
 @import "bootstrap";
 
+/* nmixins, variables, etc. */
+$lightGray: #999;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
 html {
   overflow-y: scroll;
 }
@@ -20,6 +31,51 @@ textarea {
   text-align: center;
 }
 
+.left {
+  float: left;
+}
+
+.half {
+  width: 470px;
+}
+
 .center h1 {
   margin-bottom: 10px;
 }
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 4em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* miscellaneous */
+
+.definition {
+  font-family:gothic;
+  font-size:.7 em;
+}
+
+
